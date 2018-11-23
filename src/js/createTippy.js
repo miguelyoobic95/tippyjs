@@ -487,6 +487,13 @@ export default function createTippy(reference, collectionProps) {
       ...(popperOptions || {}),
       modifiers: {
         ...(popperOptions ? popperOptions.modifiers : {}),
+        preventOverflow: {
+          boundariesElement: tip.props.boundary,
+          padding: tip.props.boundaryPadding,
+          ...(popperOptions && popperOptions.modifiers
+            ? popperOptions.modifiers.preventOverflow
+            : {})
+        },
         arrow: {
           element: arrowSelector,
           ...(popperOptions && popperOptions.modifiers
@@ -495,7 +502,7 @@ export default function createTippy(reference, collectionProps) {
         },
         flip: {
           enabled: tip.props.flip,
-          padding: tip.props.distance + 5 /* 5px from viewport boundary */,
+          padding: tip.props.distance + tip.props.boundaryPadding,
           behavior: tip.props.flipBehavior,
           ...(popperOptions && popperOptions.modifiers
             ? popperOptions.modifiers.flip

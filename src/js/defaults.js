@@ -7,6 +7,8 @@ export let Defaults = {
   arrow: false,
   arrowTransform: '',
   arrowType: 'sharp',
+  boundary: 'scrollParent',
+  boundaryPadding: 5,
   content: '',
   delay: [0, 20],
   distance: 10,
