@@ -31,6 +31,8 @@ export interface Props {
   arrow?: boolean
   arrowType?: 'sharp' | 'round'
   arrowTransform?: string
+  boundary?: string
+  boundaryPadding?: number
   content?: Content
   delay?: number | [number, number]
   duration?: number | [number, number]
