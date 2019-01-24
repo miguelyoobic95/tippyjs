@@ -1,4 +1,5 @@
 import { arrayFrom } from './ponyfills'
+import { querySelectorAllDeep } from './shadow-dom-utils'
 
 /**
  * Determines if a value is a plain object
@@ -45,7 +46,7 @@ export function getArrayOfElements(value) {
   }
 
   try {
-    return arrayFrom(document.querySelectorAll(value))
+    return arrayFrom(querySelectorAllDeep(value))
   } catch (e) {
     return []
   }

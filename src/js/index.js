@@ -4,6 +4,7 @@ import Defaults from './defaults'
 import createTippy from './createTippy'
 import bindGlobalEventListeners from './bindGlobalEventListeners'
 import { polyfillElementPrototypeProperties } from './reference'
+import { querySelectorAllDeep } from './shadow-dom-utils'
 import { validateOptions } from './props'
 import { arrayFrom } from './ponyfills'
 import { hideAllPoppers } from './popper'
@@ -95,7 +96,7 @@ tippy.useCapture = () => {}
  * Auto-init tooltips for elements with a `data-tippy="..."` attribute
  */
 export const autoInit = () => {
-  arrayFrom(document.querySelectorAll('[data-tippy]')).forEach(el => {
+  arrayFrom(querySelectorAllDeep('[data-tippy]')).forEach(el => {
     const content = el.getAttribute('data-tippy')
     if (content) {
       tippy(el, { content })

@@ -41,7 +41,7 @@
   "bundlesize": [
     {
       "path": "./dist/tippy.all.min.js",
-      "maxSize": "15 kB"
+      "maxSize": "16 kB"
     },
     {
       "path": "./dist/tippy.css",

@@ -2,6 +2,7 @@ import { supportsTouch, isIOS } from './browser'
 import Selectors from './selectors'
 import { hideAllPoppers } from './popper'
 import { closest, closestCallback, arrayFrom } from './ponyfills'
+import { querySelectorAllDeep } from './shadow-dom-utils'
 import { includes } from './utils'
 import { PASSIVE } from './constants'
 
@@ -82,7 +83,7 @@ export function onWindowBlur() {
 }
 
 export function onWindowResize() {
-  arrayFrom(document.querySelectorAll(Selectors.POPPER)).forEach(popper => {
+  arrayFrom(querySelectorAllDeep(Selectors.POPPER)).forEach(popper => {
     const tippyInstance = popper._tippy
     if (!tippyInstance.props.livePlacement) {
       tippyInstance.popperInstance.scheduleUpdate()

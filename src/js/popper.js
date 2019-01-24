@@ -1,6 +1,8 @@
 import Selectors from './selectors'
 import { arrayFrom, closestCallback } from './ponyfills'
 import { FF_EXTENSION_TRICK } from './constants'
+import { querySelectorAllDeep } from './shadow-dom-utils'
+
 
 /**
  * Returns a new `div` element
@@ -324,7 +326,7 @@ export function afterPopperPositionUpdates(popperInstance, callback) {
  * @param {Tippy} tippyInstanceToExclude
  */
 export function hideAllPoppers(tippyInstanceToExclude) {
-  arrayFrom(document.querySelectorAll(Selectors.POPPER)).forEach(popper => {
+  arrayFrom(querySelectorAllDeep(Selectors.POPPER)).forEach(popper => {
     const tip = popper._tippy
     if (
       tip &&
