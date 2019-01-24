@@ -310,7 +310,7 @@ export default function createTippy(reference, collectionProps) {
 
     if (delay) {
       showTimeoutId = setTimeout(() => {
-        show()
+        show(undefined, tip.props.shadowRoot)
       }, delay)
     } else {
       show()
@@ -812,6 +812,7 @@ export default function createTippy(reference, collectionProps) {
    */
   function show(
     duration = getValue(tip.props.duration, 0, Defaults.duration[0]),
+    shadowRoot
   ) {
     if (
       tip.state.isDestroyed ||
@@ -824,7 +825,7 @@ export default function createTippy(reference, collectionProps) {
     // Destroy tooltip if the reference element is no longer on the DOM
     if (
       !tip.reference.isVirtual &&
-      !document.documentElement.contains(tip.reference)
+      (!document.documentElement.contains(tip.reference) || !shadowRoot.contains(tip.reference))
     ) {
       return destroy()
     }
