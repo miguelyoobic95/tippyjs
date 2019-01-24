@@ -1,6 +1,6 @@
 {
   "name": "tippy.js-shadow",
-  "version": "3.4.2",
+  "version": "3.4.2-1",
   "description": "Vanilla JS Tooltip & Popover Library",
   "main": "dist/tippy.all.js",
   "module": "dist/esm/tippy.standalone.js",

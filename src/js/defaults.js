@@ -47,7 +47,7 @@ export default {
   updateDuration: 200,
   wait: null,
   zIndex: 9999,
-  shadowRoot
+  shadowRoot: null
 }
 
 /**
