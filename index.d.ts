@@ -71,6 +71,7 @@ export interface Props {
   updateDuration?: number
   wait?(instance: Instance, event: Event): void
   zIndex?: number
+  shadowRoot?: HTMLElement
 }
 
 export interface Instance {

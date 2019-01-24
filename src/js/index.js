@@ -37,7 +37,7 @@ function tippy(targets, options, one) {
     polyfillElementPrototypeProperties(targets)
   }
 
-  const references = getArrayOfElements(targets)
+  const references = getArrayOfElements(targets, options.shadowRoot)
   const firstReference = references[0]
 
   const instances = (one && firstReference

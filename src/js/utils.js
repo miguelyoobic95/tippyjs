@@ -34,7 +34,7 @@ export function isNumeric(value) {
  * @param {any} value
  * @return {Array}
  */
-export function getArrayOfElements(value) {
+export function getArrayOfElements(value, shadowRoot) {
   if (value instanceof Element || isPlainObject(value)) {
     return [value]
   }
@@ -46,7 +46,7 @@ export function getArrayOfElements(value) {
   }
 
   try {
-    return arrayFrom(querySelectorAllDeep(value))
+    return arrayFrom(querySelectorAllDeep(value, shadowRoot))
   } catch (e) {
     return []
   }
